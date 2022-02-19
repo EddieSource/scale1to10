@@ -18,7 +18,7 @@ const App = () => {
         }}
       >
         <Link to="/login">login</Link> | <Link to="/signup">signup</Link>
-        <Link to="/profile"></Link>
+        <Link to="/profile">profile</Link>
       </nav>
 
       <Outlet />
