@@ -131,7 +131,8 @@ export default function PrimarySearchAppBar() {
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
-          color="inherit"
+          color="inherit"ls
+          
         >
           <Badge badgeContent={17} color="error">
             <NotificationsIcon />
