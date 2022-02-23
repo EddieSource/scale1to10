@@ -4,6 +4,8 @@ import "./App.css";
 import ExplorationPage from "./pages/GalleryPage";
 import Grid from "@mui/material/Grid";
 
+import PrimarySearchAppBar from "./components/NavBar";
+
 //import ProfilePage from "./pages/ProfilePage";
 //import LoginPage from "./pages/LoginPage";
 const App = () => {
@@ -18,16 +20,8 @@ const App = () => {
           <Link to="/profile">profile</Link>
         </Grid>
       </Grid>
+      <PrimarySearchAppBar />
       <ExplorationPage />
-
-      <nav
-        style={{
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem",
-        }}
-      >
-        <Link to="/login">login</Link> | <Link to="/signup">signup</Link>|<Link to="/profile">profile</Link>
-      </nav>
 
       <Outlet />
     </div>
