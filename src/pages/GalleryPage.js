@@ -10,46 +10,52 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
 import { borderRadius, spacing } from "@mui/system";
+import { Link, Outlet } from "react-router-dom";
 
 const ExplorationPage = () => {
   return (
-    <Grid container spacing={1}>
-      <Grid item xs={0.5} />
-      <Grid item xs={11}>
-        <ImageList variant="masonry" cols={4} gap={20}>
-          {imageData.map((item) => (
-            <Box sx={{ mb: 2 }}>
-              <ImageListItem key={item.img}>
-                <img
-                  src={`${item.img}?w=300&fit=crop&auto=format`}
-                  srcSet={`${item.img}?w=300&fit=crop&auto=format&dpr=2 2x`}
-                  alt={item.title}
-                  loading="lazy"
-                  style={{ borderRadius: "20px" }}
-                />
-                <ImageListItemBar
-                  style={{
-                    borderBottomLeftRadius: "20px",
-                    borderBottomRightRadius: "20px",
-                  }}
-                  title={item.title}
-                  subtitle={item.author}
-                  actionIcon={
-                    <IconButton
-                      sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                      aria-label={`info about ${item.title}`}
-                    >
-                      <InfoIcon />
-                    </IconButton>
-                  }
-                />
-              </ImageListItem>
-            </Box>
-          ))}
-        </ImageList>
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={1}>
+        <Grid item xs={0.5} />
+        <Grid item xs={11}>
+          <ImageList variant="masonry" cols={4} gap={20}>
+            {imageData.map((story) => (
+              <Box sx={{ mb: 2 }}>
+                <Link to={`/story/${story.id}`}>
+                  <ImageListItem key={story.img}>
+                    <img
+                      src={`${story.img}?w=300&fit=crop&auto=format`}
+                      srcSet={`${story.img}?w=300&fit=crop&auto=format&dpr=2 2x`}
+                      alt={story.title}
+                      loading="lazy"
+                      style={{ borderRadius: "20px" }}
+                    />
+                    <ImageListItemBar
+                      style={{
+                        borderBottomLeftRadius: "20px",
+                        borderBottomRightRadius: "20px",
+                      }}
+                      title={story.title}
+                      subtitle={story.author}
+                      actionIcon={
+                        <IconButton
+                          sx={{ color: "rgba(255, 255, 255, 0.54)" }}
+                          aria-label={`info about ${story.title}`}
+                        >
+                          <InfoIcon />
+                        </IconButton>
+                      }
+                    />
+                  </ImageListItem>
+                </Link>
+              </Box>
+            ))}
+          </ImageList>
+        </Grid>
+        <Grid item xs={0.5} />
       </Grid>
-      <Grid item xs={0.5} />
-    </Grid>
+      <Outlet />
+    </Box>
   );
 };
 
