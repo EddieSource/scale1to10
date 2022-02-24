@@ -1,5 +1,5 @@
 
-import { NavBar } from '../components';
+import NavBar from '../components/NavBar'; 
 import * as React from 'react';
 //import { makeStyles } from '@material-ui/core/styles'
 import Box from '@mui/material/Box';
