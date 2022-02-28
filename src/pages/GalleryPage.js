@@ -11,11 +11,18 @@ import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
 import { borderRadius, spacing } from "@mui/system";
 import { Link, Outlet } from "react-router-dom";
+import AddIcon from '@mui/icons-material/Add';
+import Fab from '@mui/material/Fab';
 
 const ExplorationPage = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={1}>
+    <Box sx={{ flexGrow: 1 }} >
+      <Link to = "/createStory">
+      <Fab color="primary" aria-label="add" sx = {{mb : 2, mt : 2, ml : 180, mr : 2 }} > 
+      <AddIcon/> 
+      </Fab>
+      </Link>
+      <Grid container spacing={1} styled = {{color : "#FFF8E7"}}>
         <Grid item xs={0.5} />
         <Grid item xs={11}>
           <ImageList variant="masonry" cols={4} gap={20}>
@@ -56,6 +63,7 @@ const ExplorationPage = () => {
       </Grid>
       <Outlet />
     </Box>
+    
   );
 };
 

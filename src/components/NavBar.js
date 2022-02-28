@@ -16,6 +16,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Link from '@mui/material/Link';
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -89,7 +90,7 @@ export default function PrimarySearchAppBar() {
         horizontal: "right",
       }}
       id={menuId}
-      keepMounted
+      keepMounted 
       transformOrigin={{
         vertical: "top",
         horizontal: "right",
@@ -97,7 +98,9 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link href="/profile" style = {{textDecoration: 'none', display : 'block', color : 'black'}}>
+                    Profile
+                    </Link></MenuItem>
       <MenuItem onClick={handleMenuClose}><Link href="/login" style = {{textDecoration: 'none', display : 'block', color : 'black'}}>
                     Login
                   </Link></MenuItem>
@@ -159,24 +162,30 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static"
+      style={{
+            borderRadius: "10px"
+            }}>
         <Toolbar>
+          <Link href="/" style = {{textDecoration: 'none', display : 'block', color : 'black'}}>
           <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Link>
+          
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            Scale of 1 to 10
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -187,7 +196,7 @@ export default function PrimarySearchAppBar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 5 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"

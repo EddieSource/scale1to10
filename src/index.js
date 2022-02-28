@@ -9,10 +9,10 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ProfilePage from "./pages/ProfilePage";
 import StoryPage from "./pages/StoryPage";
+import CreateStoryPage from "./pages/CreateStoryPage"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ExplorationPage from "./pages/GalleryPage";
-
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
@@ -21,10 +21,11 @@ render(
         <Route index element={<ExplorationPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="story/:storyId" element={<StoryPage />} />
+        <Route path="comment/:commentId" element={<StoryPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
-
+      <Route path="/createStory" element={<CreateStoryPage />} />
       <Route
         path="*"
         element={
